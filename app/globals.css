@@ -17,6 +17,12 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+
+  body{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
 #full{
   height: 100vh;

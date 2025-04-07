@@ -5,17 +5,42 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function Home() {
-  const navbarRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const menuRef = useRef(null);
+  const tl = gsap.timeline();
   useEffect(() => {
-    if (navbarRef.current) {
-      gsap.to(navbarRef.current, {
+
+    if (sidebarRef.current) {
+      
+      tl.to(sidebarRef.current, {
+        x: "100%",
+        duration:1,
+        delay:1,
+        ease: "power1.out"
       });
     }
+
+    tl.pause()
+
+    if (menuRef.current) {
+      menuRef.current.addEventListener("click", () => {
+        tl.play();
+      });
+    }
+
+    // Cleanup (optional but recommended)
+    return () => {
+      if (menuRef.current) {
+        menuRef.current.removeEventListener("click", () => {
+          tl.play();
+        });
+      }
+    };
   }, []);
   return (
     <div>
-      <div id="full">
-        <div >
+      <div id="full" ref={sidebarRef}>
+        <div>
           <ul className="sidemenu">
             <li>Menu</li>
             <li>Tarun Soni <br/>
@@ -35,12 +60,12 @@ export default function Home() {
       </div>
       <main>
         <div className="Light-page">
-        <nav ref={navbarRef} id="navbar" className="container flex justify-between items-center mt-5">
+        <nav id="navbar" className="container flex justify-between items-center mt-5">
           <section>
             <Image src="/logo.png" width={180} height={38} alt="" />
           </section>
-          <section>
-            <Image id="menu" src="/menu.png" width={67} height={38} alt="" />
+          <section ref={menuRef}>
+            <Image id="menu"  src="/menu.png" width={67} height={38} alt="" />
           </section>
         </nav>
         <div className="container mt-5">
