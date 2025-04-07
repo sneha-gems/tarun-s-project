@@ -1,15 +1,22 @@
 'use client'
 import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function Home() {
-
+  const navbarRef = useRef(null);
+  useEffect(() => {
+    if (navbarRef.current) {
+      gsap.to(navbarRef.current, {
+      });
+    }
+  }, []);
   return (
     <div>
       <main>
         <div className="Light-page">
-        <nav id="navbar" className="container flex justify-between items-center mt-5">
+        <nav ref={navbarRef} id="navbar" className="container flex justify-between items-center mt-5">
           <section>
             <Image src="/logo.png" width={180} height={38} />
           </section>
