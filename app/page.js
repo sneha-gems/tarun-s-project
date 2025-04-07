@@ -8,7 +8,9 @@ export default function Home() {
   const sidebarRef = useRef(null);
   const menuRef = useRef(null);
   const tlRef = useRef(null);
+  const tlRef2 = useRef(null);
   const cancelRef = useRef(null);
+  const firstBlock = useRef(null)
 
   useEffect(() => {
     if (sidebarRef.current) {
@@ -18,6 +20,20 @@ export default function Home() {
         duration: 0.5,
         // delay: 1,
         ease: "power1.out",
+      });
+    }
+
+    if (firstBlock.current) {
+      // Initialize GSAP timeline once
+      tlRef2.current = gsap.timeline().to(firstBlock.current, {
+        x: "64vw",
+        duration: 2,
+        borderRadius:'10px',
+        repeat: -1, 
+        scrub: 5,
+        yoyo: true,
+        // delay: 1,
+        ease: "circ.out",
       });
     }
 
@@ -34,7 +50,6 @@ export default function Home() {
 
     const menuEl = menuRef.current;
     const cancelEl = cancelRef.current;
-    // const closeBtn = document.querySelector(".cancel-icon");
     if (menuEl) {
       menuEl.addEventListener("click", handleClick);
     }
@@ -51,7 +66,7 @@ export default function Home() {
         cancelEl.removeEventListener("click", handleClose);
       }
     };
-  }, [tlRef.current]);
+  }, [tlRef.current, tlRef2.current]);
 
   return (
     <div>
@@ -79,10 +94,10 @@ export default function Home() {
         <div className="Light-page">
           <nav
             id="navbar"
-            className="container flex justify-between items-center mt-5"
+            className=" flex justify-between items-center"
           >
             <section>
-              <Image src="/logo.png" width={180} height={38} alt="Logo" />
+              <Image src="/logo.png" width={300} height={38} alt="Logo" />
             </section>
             <section>
               <Image
@@ -95,13 +110,17 @@ export default function Home() {
               />
             </section>
           </nav>
-          <div className="container mt-5">
-            <h1 className="font-rigid text-4xl">Rigid Square in Action</h1>
-            <h1 className="">Mining Experience.</h1>
+          <div className=" mt-5">
+            <div className='heading-container'>
+            <p className="headings gradient-heading remarkable">Remarkable</p>
+            <p className="headings gradient-heading mining">Mining Experience.</p>
+            </div>
+            <div className="video-main-container">
+              <div className="first-block" ref={firstBlock}></div>
             <video
-              className="mt-5"
-              width="1000"
-              height="30"
+              id='video-container'
+              className="mt-2"
+              // height="30"
               autoPlay
               muted
               loop
@@ -110,6 +129,7 @@ export default function Home() {
               <source src="/video.webm" type="video/webm" />
               Your browser does not support the video tag.
             </video>
+            </div>
           </div>
         </div>
       </main>
