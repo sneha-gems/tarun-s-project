@@ -18,25 +18,44 @@
     --foreground: #ededed;
   }
 }
-.sidebar{
+#full{
   height: 100vh;
   width: 100%;
-  background-color: #ffffff5e;
+  background-color: #ffffff63;
   position: absolute;
   top:0;
-  backdrop-filter: blur(0.2);
+  backdrop-filter: blur(10px);
+  right: -100%;
 }
-
+#menu{
+  cursor: pointer;
+}
 .sidemenu{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid gray ;
+  border-bottom: 1px solid rgb(0, 0, 0) ;
   padding: 20px 50px !important;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cancel-icon{
+  font-weight: 700;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.menuItems{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menuItems a{
+  font-size: 40px;
 }

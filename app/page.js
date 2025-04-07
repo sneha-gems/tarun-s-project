@@ -14,24 +14,33 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <div className="sidebar">
+      <div id="full">
         <div >
           <ul className="sidemenu">
             <li>Menu</li>
-            <li></li>
+            <li>Tarun Soni <br/>
+            Founder and CEO </li>
             <li className="cancel-icon">X</li>
           </ul>
         </div>
-
+        <div className="menuItems">
+          <a> Home </a>
+          <a> Mining</a>
+          <a> Investments</a>
+          <a> About Us</a>
+          <a> Contact Us</a>
+          <a> Privacy Policy</a>
+          
+        </div>
       </div>
       <main>
         <div className="Light-page">
         <nav ref={navbarRef} id="navbar" className="container flex justify-between items-center mt-5">
           <section>
-            <Image src="/logo.png" width={180} height={38} />
+            <Image src="/logo.png" width={180} height={38} alt="" />
           </section>
           <section>
-            <Image src="/menu.png" width={67} height={38} />
+            <Image id="menu" src="/menu.png" width={67} height={38} alt="" />
           </section>
         </nav>
         <div className="container mt-5">
