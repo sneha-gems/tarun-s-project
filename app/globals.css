@@ -18,6 +18,22 @@
     --foreground: #ededed;
   }
 }
+.sidebar{
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff5e;
+  position: absolute;
+  top:0;
+  backdrop-filter: blur(0.2);
+}
+
+.sidemenu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray ;
+  padding: 20px 50px !important;
+}
 
 body {
   background: var(--background);

@@ -14,6 +14,16 @@ export default function Home() {
   }, []);
   return (
     <div>
+      <div className="sidebar">
+        <div >
+          <ul className="sidemenu">
+            <li>Menu</li>
+            <li></li>
+            <li className="cancel-icon">X</li>
+          </ul>
+        </div>
+
+      </div>
       <main>
         <div className="Light-page">
         <nav ref={navbarRef} id="navbar" className="container flex justify-between items-center mt-5">
