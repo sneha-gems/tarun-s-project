@@ -30,7 +30,7 @@
   background-color: #ffffff63;
   position: absolute;
   top:0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   right: -100%;
 }
 #menu{
@@ -56,12 +56,18 @@ body {
 }
 
 .menuItems{
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-left: 12vw;
 }
 
 .menuItems a{
   font-size: 40px;
+}
+
+.count{
+  font-size: 12px;
+
 }
