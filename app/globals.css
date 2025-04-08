@@ -46,10 +46,12 @@
   height: 100vh;
   width: 100%;
   background-color: #ffffff63;
-  position: absolute;
+  position: fixed;
   top:0;
   backdrop-filter: blur(30px);
   right: -100%;
+  z-index: 99;
+  color: white;
 }
 #menu{
   cursor: pointer;
@@ -58,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgb(0, 0, 0) ;
+  border-bottom: 1px solid rgb(255, 255, 255) ;
   padding: 20px 50px !important;
 }
 
@@ -72,7 +74,7 @@ body {
 }
 
 .gradient-heading {
-  background: linear-gradient(to right, #4F4F4F, #272727);
+  background: linear-gradient(to right, #E7E7E7, #BEBEBE);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* font-weight: bold; */
@@ -80,10 +82,11 @@ body {
 
 .headings{
   font-family: 'RigidSquareBoldItalic';
+  text-align: end;
 }
 
 .cancel-icon{
-  font-weight: 700;
+  font-weight: 400;
   font-size: 40px;
   cursor: pointer;
 }
@@ -94,6 +97,8 @@ body {
   justify-content: center;
   flex-direction: column;
   margin-left: 12vw;
+  line-height: 60px;
+  color: white;
 }
 
 .menuItems a{
@@ -109,32 +114,34 @@ body {
   padding: 5vh 8vw;
   height: 100vh;
   /* overflow-y: hidden; */
+  background: linear-gradient(to right, #130E12, #2C2B2B);
+
 }
 
 .remarkable{
-  font-size: 5rem;
+  font-size: 2.5rem;
   margin: 0;
   padding: 0;
 }
 
 .mining{
   font-family: 'RigidSquareBoldItalicSemiBold';
-  font-size: 7rem;
+  font-size: 3.5rem;
   margin: 0;
   padding-bottom: 10px;
-  line-height: 111px;
+  line-height: 80px;
 
 }
 
 .heading-container{
-  line-height: 88px;
+  line-height: 35px;
 }
 
 #video-container{
   width: 100%;
   height: 55vh;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
 
 }
 .video-main-container{
@@ -142,10 +149,116 @@ body {
 }
 
 .first-block{
-  height: 20vh;
-  width: 20vw;
-  background-color: #fdfcfcd8;
+  height: 50%;
+  width: 17%;
+  background-color: #130E12;
   position: absolute;
   bottom: 0;
   left: 0;
 }
+.second-block{
+  height: 100%;
+  width: 2%;
+  background-color: #130E12;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+.third-block{
+  height: 50%;
+  width: 25%;
+  background-color: #130E12;
+  position: absolute;
+  top: 0;
+  right: 23%;
+  display: flex;
+  align-items: center;
+}
+.fourth-block{
+  height: 50%;
+  width: 26%;
+  background-color: #130E12;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.third-block p{
+  font-size: 15px;
+  flex-wrap: wrap;
+  color: white;
+  align-items: center;
+}
+.fifth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sixth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  top: 0;
+  left: 17%;
+  border-left:0;
+}
+/* .seventh-block{
+  height: 50%;
+  width: 27%;
+  border:2px solid #130E12;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left:0;
+} */
+.eighth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  bottom: 0;
+  left: 17%;
+  border-left:0;
+}
+.nineth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  bottom: 0;
+  left: 34%;
+  border-left:0;
+}
+.tenth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  top: 0;
+  left: 34%;
+  border-left:0;
+  border-bottom: 0;
+}
+.eleventh-block{
+  height: 50%;
+  width: 23.15%;
+  background-color: #130E12;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-top: 0;
+}
+/* .twelth-block{
+  height: 50%;
+  width: 17%;
+  border:2px solid #130E12;
+  position: absolute;
+  top: 0;
+  left: 34%;
+  border-left:0;
+  border-bottom: 0;
+} */
