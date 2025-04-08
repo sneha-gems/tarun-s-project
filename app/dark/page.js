@@ -3,13 +3,8 @@ import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
 
 export default function Home() {
-  const router = useRouter();
-  const triggerRef = useRef(null);
   const sidebarRef = useRef(null);
   const menuRef = useRef(null);
   const tlRef = useRef(null);
@@ -18,7 +13,15 @@ export default function Home() {
   const firstBlock = useRef(null);
   const secondBlock = useRef(null);
   const menuItemsRef = useRef(null); // ✅ properly declared
-  gsap.registerPlugin(ScrollTrigger);
+  
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'dark')
+
+    return () => {
+      document.documentElement.setAttribute('data-theme', 'light') // or clear
+    }
+  }, [])
+
 
   useEffect(() => {
     // Sidebar animation
@@ -85,39 +88,8 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !router) return;
-  
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: triggerRef.current,
-        start: "top center",
-        end: "bottom center",
-        // onEnter: () => {
-        //   // Go to /dark if not already there
-        //   if (router.pathname !== "/dark") {
-        //     setTimeout(() => {
-        //       router.push("/dark");
-        //     }, 500);
-        //   }
-        // },
-        onLeaveBack: () => {
-          // Go back to / if not already there
-          if (router.pathname !== "/") {
-            setTimeout(() => {
-              router.push("/");
-            }, 500);
-          }
-        },
-      });
-    });
-  
-    return () => ctx.revert();
-  }, [router]);
-  
-
   return (
-    <div ref={triggerRef}>
+    <div>
       <div id="full" ref={sidebarRef}>
         <div>
           <ul className="sidemenu">
@@ -142,13 +114,13 @@ export default function Home() {
         <div className="Light-page">
           <nav id="navbar" className="flex justify-between items-center">
             <section>
-              <Image src="/logo-light.png" width={200} height={38} alt="Logo" />
+              <Image src="/logo.png" width={200} height={38} alt="Logo" />
             </section>
             <section>
               <Image
                 id="menu"
                 ref={menuRef}
-                src="/menu-light.png"
+                src="/menu.png"
                 width={50}
                 height={38}
                 alt="Menu"
@@ -157,8 +129,8 @@ export default function Home() {
           </nav>
           <div className="mt-5">
             <div className="heading-container">
-              <p className="headings-start gradient-heading remarkable">Remarkable</p>
-              <p className="headings-start gradient-heading mining">Mining Experience.</p>
+              <p className="headings gradient-heading remarkable">Remarkable</p>
+              <p className="headings gradient-heading mining">Mining Experience.</p>
             </div>
             <div className="video-main-container">
               <div className="first-block"></div>
